@@ -3,15 +3,16 @@ const ctx = canvas.getContext('2d');
 
 const imgMap = {};
 const imageNames = ['bg2', 'fg2', 'pipeBottom2', 'pipeTop2'];
+let dev = false;
 let score = 0;
 let paused = false;
 
 
 const fail = new Audio();
-fail.src = '/flappykps/sound/fail.mp3';
+fail.src = dev ? '/sound/fail.mp3' : '/flappykps/sound/fail.mp3';
 
 const succ = new Audio();
-succ.src = '/flappykps/sound/succ.mp3';
+succ.src = dev ? '/sound/succ.mp3' : '/flappykps/sound/succ.mp3';
 
 
 fail.addEventListener('ended', () => {
@@ -35,7 +36,7 @@ function loadImage (fileName) {
       imgMap[fileName] = img;
       resolve(img);
     });
-    const url = `/flappykps/img/${fileName}.png`;
+    const url = dev ? `/img/${fileName}.png` :`/flappykps/img/${fileName}.png`;
     img.src = url;
   });
 }
@@ -208,10 +209,11 @@ function once(fn, context) {
 	};
 }
 
-function allowSound() {
+const allowSound = once( () => {
   fail.play();
   fail.pause();
-}
+});
+  
 
 
 init()
@@ -224,7 +226,7 @@ init()
           jump(player);
         });
         window.addEventListener('touchstart', () => {
-          once(allowSound);
+          allowSound();
           jump(player);
         })
         run(player);
