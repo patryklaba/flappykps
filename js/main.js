@@ -195,6 +195,24 @@ function drawScore () {
   ctx.fillText(`Kolejka ${score}`, 10, 485);
 }
 
+function once(fn, context) { 
+	let result;
+
+	return function() { 
+		if(fn) {
+			result = fn.apply(context || this, arguments);
+			fn = null;
+		}
+
+		return result;
+	};
+}
+
+function allowSound() {
+  fail.play();
+  fail.pause();
+}
+
 
 init()
   .then( () => {
@@ -206,8 +224,7 @@ init()
           jump(player);
         });
         window.addEventListener('touchstart', () => {
-          fail.play();
-          fail.pause();
+          once(allowSound);
           jump(player);
         })
         run(player);
