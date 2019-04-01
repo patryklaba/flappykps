@@ -206,6 +206,8 @@ init()
           jump(player);
         });
         window.addEventListener('touchstart', () => {
+          fail.play();
+          fail.pause();
           jump(player);
         })
         run(player);
