@@ -167,6 +167,7 @@ function run (player) {
   
   draw(fg2, 0, canvas.height - fg2.height);
   drawScore();
+  drawCopy();
   if(!paused) {
     requestAnimationFrame(() => run(player));
   }
@@ -193,7 +194,13 @@ function jump (player) {
 function drawScore () {
   ctx.fillStyle = "#fff";
   ctx.font = "20px Verdana";
-  ctx.fillText(`Kolejka ${score}`, 10, 485);
+  ctx.fillText(`Kolejka: ${score}`, 10, 485);
+}
+
+function drawCopy() {
+  ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+  ctx.font = "12px Verdana";
+  ctx.fillText(`Made 4fun by Łabski`, 80, 505);
 }
 
 function once(fn, context) { 
