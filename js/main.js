@@ -238,7 +238,11 @@ init()
         window.addEventListener('touchstart', () => {
           allowSound();
           jump(player);
-        })
+        });
+        window.addEventListener('mousedown', () => {
+          allowSound();
+          jump(player);
+        });
         run(player);
       });
   });
