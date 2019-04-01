@@ -212,6 +212,9 @@ function once(fn, context) {
 const allowSound = once( () => {
   fail.play();
   fail.pause();
+
+  succ.play();
+  succ.pause();
 });
   
 
