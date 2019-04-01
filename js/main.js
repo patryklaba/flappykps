@@ -35,7 +35,7 @@ function loadImage (fileName) {
       imgMap[fileName] = img;
       resolve(img);
     });
-    const url = `/img/${fileName}.png`;
+    const url = `/flappykps/img/${fileName}.png`;
     img.src = url;
   });
 }
