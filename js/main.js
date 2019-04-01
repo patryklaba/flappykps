@@ -8,10 +8,10 @@ let paused = false;
 
 
 const fail = new Audio();
-fail.src = '/sound/fail.mp3';
+fail.src = '/flappykps/sound/fail.mp3';
 
 const succ = new Audio();
-succ.src = '/sound/succ.mp3';
+succ.src = '/flappykps/sound/succ.mp3';
 
 
 fail.addEventListener('ended', () => {
