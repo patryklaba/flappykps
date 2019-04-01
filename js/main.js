@@ -239,10 +239,7 @@ init()
           allowSound();
           jump(player);
         });
-        window.addEventListener('mousedown', () => {
-          allowSound();
-          jump(player);
-        });
+        
         run(player);
       });
   });
